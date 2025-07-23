@@ -1,6 +1,6 @@
 # Jassistant - 媒体文件助手
 
-![Jassistant Logo](https://raw.githubusercontent.com/fishinsevens/Jassistant/main/logo.png)
+![Jassistant Logo](https://raw.githubusercontent.com/fishinsevens/jassistant/main/logo.png)
 
 ## 项目简介
 
