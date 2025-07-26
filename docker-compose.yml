@@ -1,0 +1,28 @@
+services:
+  jassistant-test:
+    image: test:1.0.0
+    container_name: jassistant-test
+    network_mode: bridge
+    restart: always
+    ports:
+      - "34712:34711"
+    # 日志轮替设置：限制每个日志文件最大为10MB，最多保留3个日志文件
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    volumes:
+      - ./data/logs:/app/logs
+      - ./data/db:/app/db
+      - ./data/settings:/app/settings
+      - ./data/watermarks:/app/assets
+      - ./data/cover_cache:/app/cover_cache
+      - /vol1/1000/weiam:/weiam
+    environment:
+      - TZ=Asia/Shanghai
+      # 设置Python环境变量
+      - PYTHONUNBUFFERED=1
+      # 设置API密钥和URL，如果需要可以修改
+      - CID_API_KEY=ZH46FX7HMQj
+      - CID_API_URL=http://10.0.0.8:10086/api/get_cid
