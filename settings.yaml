@@ -1,0 +1,42 @@
+# backend/settings.yaml - 默认配置文件
+
+# 主页显示设置
+latest_movies_count: 24
+secure_mode: false
+cover_size: "medium"
+homepage_aspect_ratio: "2:3"
+
+# 水印处理设置
+watermark_targets:
+  - poster
+  - thumb
+watermark_scale_ratio: 9
+watermark_horizontal_offset: 0
+watermark_vertical_offset: 0
+watermark_spacing: 0
+
+# 图片裁剪设置
+poster_crop_ratio: 1.415
+
+# --- 通知设置 ---
+notification_enabled: false
+notification_time: "10:00" # HH:MM 格式
+notification_type: "custom" # 可选值: custom, telegram
+
+# 自定义通知配置
+notification_api_url: "http://10.0.0.8:5400/api/service/notify"
+notification_route_id: "route_r6sp"
+
+# Telegram机器人配置
+telegram_bot_token: ""
+telegram_chat_id: ""
+telegram_random_image_api: "" # 随机图片API的URL，留空则不发送图片
+
+# 系统设置
+log_level: "INFO"
+media_root: "/weiam" # 媒体文件根路径，必须与容器内的挂载路径一致
+
+# 图片质量判断标准
+high_quality_min_height: 800  # 最小高度(像素)，低于此值判定为低画质
+high_quality_min_width: 450   # 最小宽度(像素)，低于此值判定为低画质
+high_quality_min_size_kb: 50  # 最小文件大小(KB)，低于此值判定为低画质
